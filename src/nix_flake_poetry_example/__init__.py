@@ -1,7 +1,5 @@
 def main():
 
-    # -*- coding: utf-8 -*-
-
     import torch
     import math
 
