@@ -1,17 +1,5 @@
-# {
-#   description = "A very basic flake";
-# 
-#   outputs = { self, nixpkgs }: {
-# 
-#     packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
-# 
-#     defaultPackage.x86_64-linux = self.packages.x86_64-linux.hello;
-# 
-#   };
-# }
-
 {
-  description = "Your flake using poetry2nix";
+  description = "A basic nix + flake + poetry example";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs";
   inputs.utils.url = "github:numtide/flake-utils";
