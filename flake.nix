@@ -25,12 +25,20 @@
     in
     {
       # use pkgs.poetry2nix here.
-      app = pkgs.poetry2nix.mkPoetryApplication {
+      defaultPackage = pkgs.poetry2nix.mkPoetryApplication {
         projectDir = ./.;
       };
 
-      devShell = pkgs.poetry2nix.mkPoetryEnv {
-        projectDir = ./.;
+      devShell = pkgs.mkShell {
+        buildInputs = with pkgs; [
+          (pkgs.poetry2nix.mkPoetryEnv {
+            projectDir = ./.;
+
+            editablePackageSources = {
+              my-app = ./src;
+            };
+          })
+        ];
       };
 
     });
