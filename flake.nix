@@ -24,13 +24,20 @@
 
     in
     {
-      # use pkgs.poetry2nix here.
       defaultPackage = pkgs.poetry2nix.mkPoetryApplication {
         projectDir = ./.;
       };
 
       devShell = pkgs.mkShell {
+
+        # Add anything in here if you want it to run when we run `nix develop`.
+        shellHook = ''
+          echo "Updating .vscode/settings.json to have the correct python interpreter."
+          jq ".[\"python.pythonPath\"]=\"$(which python)\"" .vscode/settings.json
+          '';
         buildInputs = with pkgs; [
+          # Additional dev packages list here.
+          nixpkgs-fmt
           (pkgs.poetry2nix.mkPoetryEnv {
             projectDir = ./.;
 
