@@ -1,7 +1,8 @@
-def main():
+import torch
+import math
 
-    import torch
-    import math
+
+def main():
 
     dtype = torch.float
     device = torch.device("cpu")
