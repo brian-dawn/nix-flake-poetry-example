@@ -6,7 +6,6 @@ authors = ["Brian Dawn <brian.t.dawn@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-numpy = "^1.20.2"
 torch = "^1.8.1"
 typing-extensions = "^3.7.4"
 

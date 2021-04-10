@@ -32,8 +32,8 @@
 
         # Add anything in here if you want it to run when we run `nix develop`.
         shellHook = ''
-          echo "Updating .vscode/settings.json to have the correct python interpreter."
-          jq ".[\"python.pythonPath\"]=\"$(which python)\"" .vscode/settings.json
+          # Update .vscode/settings.json to have the correct python interpreter.
+          jq ".[\"python.pythonPath\"]=\"$(which python)\"" .vscode/settings.json > /dev/null
         '';
         buildInputs = with pkgs; [
           # Additional dev packages list here.
