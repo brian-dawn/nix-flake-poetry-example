@@ -26,6 +26,7 @@
         buildInputs = with pkgs; [
           # Additional dev packages list here.
           nixpkgs-fmt
+          jq
           (pkgs.poetry2nix.mkPoetryEnv {
             projectDir = ./.;
 
