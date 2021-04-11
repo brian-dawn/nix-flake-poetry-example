@@ -20,13 +20,10 @@
 
         # Add anything in here if you want it to run when we run `nix develop`.
         shellHook = ''
-          # Update .vscode/settings.json to have the correct python interpreter.
-          jq ".[\"python.pythonPath\"]=\"$(which python)\"" .vscode/settings.json > /dev/null
         '';
         buildInputs = with pkgs; [
           # Additional dev packages list here.
           nixpkgs-fmt
-          jq
           (pkgs.poetry2nix.mkPoetryEnv {
             projectDir = ./.;
 
